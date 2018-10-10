@@ -27,8 +27,8 @@ public class Comment {
     //por eso no se incluye en el constructor.
     private int id;
     
-    private Date fechayHora;
-    private String resumen;
+    private Date creationDate;
+    private String content;
 
     
     

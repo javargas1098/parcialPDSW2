@@ -31,7 +31,7 @@ public class Blog {
     private int id;
     private String nombre;
     private Date fechaNacimiento;
-    List<Consulta> consultas;
+    List<Comment> consultas;
     
 
     public Blog(int id, TipoIdentificacion tipo_id, String nombre, Date fechaNacimiento) {
