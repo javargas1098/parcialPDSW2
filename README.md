@@ -105,17 +105,16 @@ Siga al pie de la letra estas indicaciones para la entrega del examen. EL HACER 
 6. IMPORTANTE!. Conserve una copia de la carpeta y del archivo .ZIP.
 
 
-[comment]: # '
-## Bono 
+<!-- ## Bono 
 Si después de realizado el parcial, de forma INDIVIDUAL encuentra defectos menores (que impliquen a lo sumo cambiar 5 líneas de código), y que al corregirlos permiten que los puntos 2 o 3 funcionen:
 1. Haga los ajustes en su código.
 2. Haga un nuevo commit con el mensaje "entrega bono, ahora funciona el Punto XX" , donde XX es el punto que se corrigió. 
 3. Ejecute:
 
     ```bash
-    $ git diff --stat HEAD HEAD^^
+	    $ git diff --stat HEAD HEAD^^
     ```
 
 4. Si el resultado del comando anterior es menor o igual a 10, puede aplicar al bono.
 5. Comprima la nueva versión siguiendo el esquema indicado en el parcial, y súbalo a más tardar el 24 de Octubre a las 11:59pm en el espacio correspondiente.
-'
+-->
