@@ -59,7 +59,7 @@ Mostrar los nombres y login de usuarios que han escrito comentarios con palabras
 
 
 1.  (20%) A partir de la especificación hecha en los métodos
-    *consultarBlogsPorTituloYUsuario* y *consultarUsuariosOfensivos* de la fachada de
+    `consultarBlogsPorTituloYUsuario` y `consultarUsuariosOfensivos` de la fachada de
     servicios (la parte lógica de la aplicación), implemente sólo una prueba (la que considere más importante para validar las especificaciones y los criterios de aceptación). Siga el esquema usado en ServicesJUnitTest para poblar la base de datos volátil y verificar el comportamiento de las operaciones de la lógica.
 
 2.  (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en `comentarios.xhtml`.
@@ -105,7 +105,7 @@ Siga al pie de la letra estas indicaciones para la entrega del examen. EL HACER 
 6. IMPORTANTE!. Conserve una copia de la carpeta y del archivo .ZIP.
 
 
-[//]: # '
+[comment]: # '
 ## Bono 
 Si después de realizado el parcial, de forma INDIVIDUAL encuentra defectos menores (que impliquen a lo sumo cambiar 5 líneas de código), y que al corregirlos permiten que los puntos 2 o 3 funcionen:
 1. Haga los ajustes en su código.
