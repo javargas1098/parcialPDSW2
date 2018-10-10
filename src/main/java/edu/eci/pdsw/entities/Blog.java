@@ -26,16 +26,15 @@ import java.util.Set;
  *
  * @author hcadavid
  */
-public class Paciente {
+public class Blog {
     
     private int id;
-    private TipoIdentificacion tipo_id;
     private String nombre;
     private Date fechaNacimiento;
     List<Consulta> consultas;
     
 
-    public Paciente(int id, TipoIdentificacion tipo_id, String nombre, Date fechaNacimiento) {
+    public Blog(int id, TipoIdentificacion tipo_id, String nombre, Date fechaNacimiento) {
         this.id = id;
         this.tipo_id = tipo_id;
         this.nombre = nombre;
@@ -43,7 +42,7 @@ public class Paciente {
         consultas=new ArrayList<>();
     }
 
-    public Paciente() {
+    public Blog() {
         consultas=new ArrayList<>();
     }
 

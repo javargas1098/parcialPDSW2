@@ -22,7 +22,7 @@ import java.sql.Date;
  *
  * @author hcadavid
  */
-public class Consulta {
+public class Comment {
     //el identificador es asignado por la base de datos,
     //por eso no se incluye en el constructor.
     private int id;
@@ -32,13 +32,13 @@ public class Consulta {
 
     
     
-    public Consulta(Date fechayHora, String resumen) {
+    public Comment(Date fechayHora, String resumen) {
         this.id=-1;
         this.fechayHora = fechayHora;
         this.resumen = resumen;
     }    
     
-    public Consulta() {
+    public Comment() {
     }
 
     public int getId() {
