@@ -1,3 +1,5 @@
 @startuml
-Paciente -right-> "*" Consulta
+Blog -right-> "*" Comment
+User -> "*" Comment 
+User -> "*" Blog 
 @enduml
