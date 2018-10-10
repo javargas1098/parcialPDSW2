@@ -10,7 +10,7 @@
 * Se puede consultar en la Web: APIs/Documentación de lenguaje y frameworks (Primefaces, Guice, MyBatis, etc), y enunciados de los laboratorios (se pueden revisar los fuentes incluidos con los dichos enunciados).
 * No se permite: Usar memorias USB, acceder a redes sociales, clientes de correo, o sistemas de almacenamiento en la nube (Google Drive, DropBox, etc). El uso de éstos implicará anulación.
 * Clone el proyecto con GIT, NO lo descargue directamente.
-* NO modifique los indicado en comentarios.xhtml.
+* NO modifique los indicado en `comentarios.xhtml`.
 * El filtrado y ordenamiento de los datos DEBE realizarse en el motor de base de datos, a través del uso de SQL. Consultar todos los datos y filtrarlos en el servidor de aplicaciones -que es supremamente INEFICIENTE- se evaluará como INCORRECTO.
 
 
@@ -59,12 +59,12 @@ Mostrar los nombres y login de usuarios que han escrito comentarios con palabras
 
 
 1.  (20%) A partir de la especificación hecha en los métodos
-    *consultarPacientesPorId* y *consultarMenoresConEnfermedadContagiosa* de la fachada de
+    *consultarBlogsPorTituloYUsuario* y *consultarUsuariosOfensivos* de la fachada de
     servicios (la parte lógica de la aplicación), implemente sólo una prueba (la que considere más importante para validar las especificaciones y los criterios de aceptación). Siga el esquema usado en ServicesJUnitTest para poblar la base de datos volátil y verificar el comportamiento de las operaciones de la lógica.
 
-2.  (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultaPaciente.xhtml.
+2.  (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en `comentarios.xhtml`.
 
-3.  (40%)Implemente la historia de usuario #2, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultarMenoresEnfermedadContagiosa.xhtml.
+3.  (40%)Implemente la historia de usuario #2, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en `consultarUsuariosOfensivos.xhtml`.
 
 
 ## Entrega
@@ -105,14 +105,11 @@ Siga al pie de la letra estas indicaciones para la entrega del examen. EL HACER 
 6. IMPORTANTE!. Conserve una copia de la carpeta y del archivo .ZIP.
 
 
-## Bono
-
+[//]: # '
+## Bono 
 Si después de realizado el parcial, de forma INDIVIDUAL encuentra defectos menores (que impliquen a lo sumo cambiar 5 líneas de código), y que al corregirlos permiten que los puntos 2 o 3 funcionen:
-
 1. Haga los ajustes en su código.
-
 2. Haga un nuevo commit con el mensaje "entrega bono, ahora funciona el Punto XX" , donde XX es el punto que se corrigió. 
-
 3. Ejecute:
 
     ```bash
@@ -120,6 +117,5 @@ Si después de realizado el parcial, de forma INDIVIDUAL encuentra defectos meno
     ```
 
 4. Si el resultado del comando anterior es menor o igual a 10, puede aplicar al bono.
-
-5. Comprima la nueva versión siguiendo el esquema indicado en el parcial, y súbalo a más tardar el 24 de Marzo a las 11:59pm en el espacio correspondiente.
-
+5. Comprima la nueva versión siguiendo el esquema indicado en el parcial, y súbalo a más tardar el 24 de Octubre a las 11:59pm en el espacio correspondiente.
+'
