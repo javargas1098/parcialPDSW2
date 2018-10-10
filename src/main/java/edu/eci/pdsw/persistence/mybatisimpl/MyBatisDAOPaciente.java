@@ -14,15 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package edu.eci.pdsw.samples.persistence.mybatisimpl;
+package edu.eci.pdsw.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
-import edu.eci.pdsw.samples.entities.Consulta;
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.TipoIdentificacion;
-import edu.eci.pdsw.samples.persistence.DaoPaciente;
-import edu.eci.pdsw.samples.persistence.PersistenceException;
-import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.PacienteMapper;
+
+import edu.eci.pdsw.persistence.mybatisimpl.mappers.PacienteMapper;
+import edu.eci.pdsw.entities.Consulta;
+import edu.eci.pdsw.entities.Paciente;
+import edu.eci.pdsw.entities.TipoIdentificacion;
+import edu.eci.pdsw.persistence.DaoPaciente;
+import edu.eci.pdsw.persistence.PersistenceException;
+
 import java.util.List;
 
 /**

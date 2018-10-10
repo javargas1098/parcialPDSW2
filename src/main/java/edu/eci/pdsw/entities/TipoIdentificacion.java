@@ -1,4 +1,4 @@
-package edu.eci.pdsw.samples.entities;
+package edu.eci.pdsw.entities;
 
 public enum TipoIdentificacion {
     CC,

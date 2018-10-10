@@ -14,24 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package edu.eci.pdsw.samples.persistence.mybatisimpl.mappers;
-
-import java.util.List;
-import java.util.Set;
-
-import edu.eci.pdsw.samples.entities.Paciente;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+package edu.eci.pdsw.persistence;
 
 /**
  *
  * @author hcadavid
  */
-public interface PacienteMapper {
+public class PersistenceException extends Exception {
 
-    List<Paciente> getPacientes();
+    public PersistenceException(String message) {
+        super(message);
+    }
 
+    public PersistenceException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public PersistenceException(Throwable cause) {
+        super(cause);
+    }
+
+    public PersistenceException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
+    
 }

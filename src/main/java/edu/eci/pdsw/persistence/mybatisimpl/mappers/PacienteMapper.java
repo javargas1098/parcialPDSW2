@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 hcadavid
+ * Copyright (C) 2015 hcadavid
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,28 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package edu.eci.pdsw.samples.persistence;
-
-import edu.eci.pdsw.samples.entities.Consulta;
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.TipoIdentificacion;
+package edu.eci.pdsw.persistence.mybatisimpl.mappers;
 
 import java.util.List;
+import java.util.Set;
+
+import edu.eci.pdsw.entities.Paciente;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
+import org.apache.ibatis.annotations.Select;
 
 /**
  *
  * @author hcadavid
  */
-public interface DaoPaciente {
- 
-    public Paciente load(int id, TipoIdentificacion tipoIdentificacion) throws PersistenceException;
-    
-    public List<Paciente> loadAll() throws PersistenceException;
-    
-    public void save(Paciente e) throws PersistenceException;
-    
-    public void update(Paciente e) throws PersistenceException;
-    
-    public void addConsulta(int id, TipoIdentificacion tipoId, Consulta c) throws PersistenceException;
-    
+public interface PacienteMapper {
+
+    List<Paciente> getPacientes();
+
 }

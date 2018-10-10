@@ -14,12 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package edu.eci.pdsw.samples.tests;
+package edu.eci.pdsw.tests;
 
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.Consulta;
-import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
-import edu.eci.pdsw.samples.services.ServiciosPacientesFactory;
+import edu.eci.pdsw.entities.Paciente;
+import edu.eci.pdsw.entities.Consulta;
+import edu.eci.pdsw.services.ExcepcionServiciosSuscripciones;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -79,12 +79,12 @@ public class ServicesJUnitTest {
         //Realizar la operacion de la logica y la prueba
         
         
-        List<Paciente> pacientes = ServiciosPacientesFactory.getInstance().getTestingForumServices().consultarPacientes();
+//        List<Paciente> pacientes = ServiciosPacientesFactory.getInstance().getTestingForumServices().consultarPacientes();
 
         
-        for (Paciente paciente : pacientes){
-            System.out.println(paciente);
-        }
+//        for (Paciente paciente : pacientes){
+//            System.out.println(paciente);
+//        }
         //assert ...
         Assert.fail("Pruebas no implementadas aun...");
         

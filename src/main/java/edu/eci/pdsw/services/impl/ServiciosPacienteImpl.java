@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.pdsw.samples.services.impl;
+package edu.eci.pdsw.services.impl;
 
 import com.google.inject.Inject;
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.TipoIdentificacion;
-import edu.eci.pdsw.samples.persistence.DaoPaciente;
-import edu.eci.pdsw.samples.persistence.PersistenceException;
-import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
-import edu.eci.pdsw.samples.services.ServiciosPaciente;
+import edu.eci.pdsw.entities.Paciente;
+import edu.eci.pdsw.entities.TipoIdentificacion;
+import edu.eci.pdsw.persistence.DaoPaciente;
+import edu.eci.pdsw.persistence.PersistenceException;
+import edu.eci.pdsw.services.ExcepcionServiciosSuscripciones;
+import edu.eci.pdsw.services.ServiciosPaciente;
 import java.util.List;
 
 /**

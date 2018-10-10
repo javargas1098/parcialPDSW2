@@ -1,15 +1,11 @@
-package edu.eci.pdsw.samples.services;
+package edu.eci.pdsw.services;
 
 
 import java.util.List;
 
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.TipoIdentificacion;
+import edu.eci.pdsw.entities.Paciente;
+import edu.eci.pdsw.entities.TipoIdentificacion;
 
-/**
- *
- * @author 2106913
- */
 public interface ServiciosPaciente {
 
     /**

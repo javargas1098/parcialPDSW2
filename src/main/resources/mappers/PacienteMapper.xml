@@ -19,6 +19,6 @@
             p.fecha_nacimiento,
             p.nombre
         FROM
-            PACIENTES as p
+            PACIENTE as p
     </select>
 </mapper>
