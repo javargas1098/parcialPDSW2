@@ -24,18 +24,17 @@ Recuerde que en el formato XML no se puede utilizar '<' y '>', por ejemplo al re
 
 ## Historia de usuario #1
 
-    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    > **Como** Usuario de la plataforma de blog
-    >
-    > **Quiero** Poder consultar los comentarios de un blog a partir del titulo.
-    >
-    > **Para** Poder hacer una revisión de los comentarios realizadas por un usuario cuyo login conozco, y así evitar la búsqueda por el nombre del usuario.
-    >
-    > **Criterio de aceptación:** Se debe mostrar el nombre del usuario, el login y cada una de los comentarios realizados. Las comentarios deben estar organizados del más reciente (mostrados arriba) al más antíguo, y deben mostrar la fecha y el comentario.
+  > **Como** Usuario de la plataforma de blog
+  >
+  > **Quiero** Poder consultar los comentarios de un blog a partir del titulo.
+  >
+  > **Para** Poder hacer una revisión de los comentarios realizadas por un usuario cuyo login conozco, y así evitar la búsqueda por el nombre del usuario.
+  >
+  > **Criterio de aceptación:** Se debe mostrar el nombre del usuario, el login y cada una de los comentarios realizados. Las comentarios deben estar organizados del más reciente (mostrados arriba) al más antíguo, y deben mostrar la fecha y el comentario.
+
 
 ## Historia de usuario #2
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   > **Como** Administrador de la plataforma
   >
   > **Quiero** Tener un reporte de los comentarios de los usuarios que tengan palabras ofensivas.
@@ -43,7 +42,8 @@ Recuerde que en el formato XML no se puede utilizar '<' y '>', por ejemplo al re
   > **Para** Conocer con rapidez qué comentarios debo revisar y tomar medidas al respecto.
   >
   > **Criterio de aceptación:** El reporte NO debe requerir entrar parámetro alguno. Se considerán como palabras ofensivas: 'tonto' y 'burro'. El reporte sólo debe contener el nombre y login del usuario, ordenados por login alfabeticamente.
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Modelo 
 
 El modelo de base de datos y de clases asociados a la implementación parcial son los siguientes:
 
