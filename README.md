@@ -10,12 +10,12 @@
 * Se puede consultar en la Web: APIs/Documentación de lenguaje y frameworks (Primefaces, Guice, MyBatis, etc), y enunciados de los laboratorios (se pueden revisar los fuentes incluidos con los dichos enunciados).
 * No se permite: Usar memorias USB, acceder a redes sociales, clientes de correo, o sistemas de almacenamiento en la nube (Google Drive, DropBox, etc). El uso de éstos implicará anulación.
 * Clone el proyecto con GIT, NO lo descargue directamente.
-* NO modifique los indicado en consultaPaciente.xhtml.
+* NO modifique los indicado en comentarios.xhtml.
 * El filtrado y ordenamiento de los datos DEBE realizarse en el motor de base de datos, a través del uso de SQL. Consultar todos los datos y filtrarlos en el servidor de aplicaciones -que es supremamente INEFICIENTE- se evaluará como INCORRECTO.
 
 
-Se le han dado los fuentes de un avance parcial de una plataforma de consultas de pacientes de una IPS en línea. En esta plataforma los médicos podrán registrar y buscar pacientes así como buscar y registrar las consultas.
-Adicionalmente, la secretaria de salud puede hacer búsquedas para control epidemiológico.
+Se le han dado los fuentes de un avance parcial de una plataforma de blogs. En esta plataforma los usuarios podrán registrar y buscar blogs así como buscar y registrar comentarios.
+Adicionalmente, hay un usuario administrador del sistema que puede hacer consultas los comentarios de todos los blogs.
 
 Para el Sprint en curso, se han seleccionado las siguientes historias de usuario del Backlog de producto:
 
@@ -25,24 +25,24 @@ Recuerde que en el formato XML no se puede utilizar '<' y '>', por ejemplo al re
 ## Historia de usuario #1
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  > **Como** Usuario de la plataforma de consultas médicas
+  > **Como** Usuario de la plataforma de blog
   >
-  > **Quiero** Poder consultar un paciente a partir de su número y tipo de identificación.
+  > **Quiero** Poder consultar los comentarios de un blog a partir del titulo.
   >
-  > **Para** Poder hacer una revisión de las consultas realizadas por un paciente cuyo documento ya conozco, y así evitar la búsqueda por el nombre del paciente.
+  > **Para** Poder hacer una revisión de los comentarios realizadas por un usuario cuyo login conozco, y así evitar la búsqueda por el nombre del usuario.
   >
-  > **Criterio de aceptación:** Se debe mostrar la fecha de nacimiento del paciente, su nombre, y cada una de las consultas realizadas. Las consultas deben estar organizadas de la más reciente (mostrados arriba) a la más antígua, y deben mostrar la fecha y el resúmen.
+  > **Criterio de aceptación:** Se debe mostrar el nombre del usuario, el login y cada una de los comentarios realizados. Las comentarios deben estar organizados del más reciente (mostrados arriba) al más antíguo, y deben mostrar la fecha y el comentario.
 
 ## Historia de usuario #2
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  > **Como** Usuario de la secretaría de salud de la plataforma
+  > **Como** Administrador de la plataforma
   >
-  > **Quiero** Tener un reporte de las consultas de los menores de edad (menóres de 18 años) en las que en el resúmen se encuentren enfermedades contagiosas.
+  > **Quiero** Tener un reporte de los comentarios de los usuarios que tengan palabras ofensivas.
   >
-  > **Para** Conocer con rapidez qué pacientes debo revisar y tomar medidas al respecto.
+  > **Para** Conocer con rapidez qué comentarios debo revisar y tomar medidas al respecto.
   >
-  > **Criterio de aceptación:** El reporte NO debe requerir entrar parámetro alguno. Se considerán como enfermedades contagiosas: 'hepatitis' y 'varicela'. El reporte sólo debe contener el número y tipo de identificación  del paciente y la fecha de nacimiento, ordenados por edad de mayor a menor.
+  > **Criterio de aceptación:** El reporte NO debe requerir entrar parámetro alguno. Se considerán como palabras ofensivas: 'tonto' y 'burro'. El reporte sólo debe contener el nombre y login del usuario, ordenados por login alfabeticamente.
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 El modelo de base de datos y de clases asociados a la implementación parcial son los siguientes:
@@ -53,9 +53,9 @@ El modelo de base de datos y de clases asociados a la implementación parcial so
 
 A partir de la aplicación base suministrada, debe realizar lo siguiente:
 
-Dado un número y tipo de identificacion de un paciente, mostrar el paciente y las consultas que ha realizado esde paciente.
+Dado un titulo de blog y login de usuario, mostrar los comentarios que ha realizado el usuario a dicho blog.
 
-Mostrar los pacientes menores de edad que en sus consultas se encuentren las enfermedades: hepatitis o varicela.
+Mostrar los nombres y login de usuarios que han escrito comentarios con palabras ofensivas.
 
 
 1.  (20%) A partir de la especificación hecha en los métodos
