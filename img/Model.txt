@@ -1,5 +1,5 @@
 @startuml
 Blog -right-> "*" Comment
-	Comment - User : write >
-	Blog - User : author >
+User -> "*" Comment 
+User -> "*" Blog 
 @enduml
