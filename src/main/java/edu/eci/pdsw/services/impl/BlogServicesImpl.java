@@ -9,8 +9,10 @@ import com.google.inject.Inject;
 
 import edu.eci.pdsw.entities.Blog;
 import edu.eci.pdsw.entities.Comment;
+import edu.eci.pdsw.entities.User;
 import edu.eci.pdsw.persistence.BlogDAO;
 import edu.eci.pdsw.persistence.PersistenceException;
+import edu.eci.pdsw.persistence.UserDAO;
 import edu.eci.pdsw.services.ServicesException;
 import edu.eci.pdsw.services.BlogServices;
 import java.util.List;
@@ -24,8 +26,20 @@ public class BlogServicesImpl implements BlogServices {
 
 	@Inject
 	private BlogDAO blogDAO;
+	
+	@Inject
+	private UserDAO userDAO;
 
     @Override
+	public List<User> listUsers() throws ServicesException {
+		try {
+            return userDAO.loadAll();
+        } catch (PersistenceException ex) {
+            throw new ServicesException("Load users error:"+ex.getLocalizedMessage(), ex);
+        }
+	}
+
+	@Override
 	public List<Blog> listAll() throws ServicesException {
     	throw new UnsupportedOperationException("Not supported yet.");
 	}
