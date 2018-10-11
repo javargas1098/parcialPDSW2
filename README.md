@@ -41,7 +41,7 @@ Recuerde que en el formato XML no se puede utilizar '<' y '>', por ejemplo al re
   >
   > **Para** Conocer con rapidez qué comentarios debo revisar y tomar medidas al respecto.
   >
-  > **Criterio de aceptación:** El reporte NO debe requerir entrar parámetro alguno. Se considerán como palabras ofensivas: 'tonto' y 'burro'. El reporte sólo debe contener el nombre y login del usuario, ordenados por login alfabeticamente.
+  > **Criterio de aceptación:** El reporte NO debe requerir entrar parámetro alguno. Se considerán como palabras ofensivas: 'tonto' y 'burro'. El reporte debe contener el nombre y login del usuario, el id y titulo del blog y el contenido del comentario, ordenados por login alfabeticamente.
 
 # Modelo 
 
