@@ -21,9 +21,7 @@
 			<h:outputText value="#{user.lastName}" />
 		</p:column>
 		<p:column headerText="Last Name">
-<!-- 			<h:form> -->
-				<p:button outcome="blog?user=#{user.login}" value="View Blog" />
-<!-- 			</h:form> -->
+			<p:button outcome="blog?user=#{user.login}" value="View Blog" />
 		</p:column>
 	</p:dataTable>
 </h:body>
