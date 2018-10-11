@@ -5,18 +5,5 @@
   
 <mapper namespace="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.BlogMapper">
 
-    <resultMap type='User' id='UserResult'>
-        <id property='login' column='login'/>        
-        <result property='name' column='name'/>
-        <result property='lastName' column='lastName'/>
-    </resultMap>
 
-    <select id="getUsers" resultMap="UserResult">
-        SELECT
-            p.login,
-            p.name,
-            p.lastName
-        FROM
-            BLOG_USUARIO as p
-    </select>
 </mapper>

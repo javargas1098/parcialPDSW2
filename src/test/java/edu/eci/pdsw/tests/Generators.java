@@ -7,10 +7,14 @@ import edu.eci.pdsw.entities.User;
 
 
 public class Generators {
+	static private int nextUserID = 0;
+	
 	static public Gen<User> users() {
-		return strings().allPossible().ofLengthBetween(1, 20)
-				.zip(strings().allPossible().ofLengthBetween(10, 50),
-						strings().allPossible().ofLengthBetween(10, 50),
-						(login,name, lastName) -> new User(login,name,lastName));
+		return strings().basicLatinAlphabet().ofLengthBetween(10, 50)
+				.zip(strings().basicLatinAlphabet().ofLengthBetween(10, 50),
+						(name, lastName) -> {
+							nextUserID++;
+							return new User("user"+nextUserID,name,lastName);	
+						});
 	}
 }

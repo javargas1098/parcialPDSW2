@@ -21,6 +21,7 @@ import java.util.Set;
 
 import edu.eci.pdsw.entities.Blog;
 import edu.eci.pdsw.entities.User;
+import edu.eci.pdsw.samples.entities.Cliente;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -34,6 +35,8 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface UserMapper {
 
-    List<User> getUsers();
+	public int insertUser(@Param("user") User uset);
+	
+    public List<User> getUsers();
 
 }
