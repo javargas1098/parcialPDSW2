@@ -16,15 +16,15 @@
  */
 package edu.eci.pdsw.persistence.mybatisimpl;
 
+import java.util.List;
+
 import com.google.inject.Inject;
 
-import edu.eci.pdsw.persistence.mybatisimpl.mappers.UserMapper;
 import edu.eci.pdsw.entities.Blog;
 import edu.eci.pdsw.entities.Comment;
 import edu.eci.pdsw.persistence.BlogDAO;
 import edu.eci.pdsw.persistence.PersistenceException;
-
-import java.util.List;
+import edu.eci.pdsw.persistence.mybatisimpl.mappers.BlogMapper;
 
 /**
  *
@@ -32,11 +32,10 @@ import java.util.List;
  */
 public class MyBatisBlogDAO implements BlogDAO {
 
+	@Inject
+	BlogMapper blogMapper;
 
-    // @Inject
-    // BlogMapper blogMapper;
-    
-    @Override
+	@Override
 	public List<Blog> loadAll() throws PersistenceException {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
@@ -64,5 +63,10 @@ public class MyBatisBlogDAO implements BlogDAO {
 	@Override
 	public Blog load(String title) throws PersistenceException {
 		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public List<Blog> loadByUser(String login) throws PersistenceException {
+		return blogMapper.findByUser(login);
 	}
 }

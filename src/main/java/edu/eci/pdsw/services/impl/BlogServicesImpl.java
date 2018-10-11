@@ -44,6 +44,15 @@ public class BlogServicesImpl implements BlogServices {
     	throw new UnsupportedOperationException("Not supported yet.");
 	}
 
+    @Override
+    public List<Blog> searchByUser(String login) throws ServicesException {
+    	try {
+			return blogDAO.loadByUser(login);
+		} catch (PersistenceException ex) {
+            throw new ServicesException("Search error:"+ex.getLocalizedMessage(), ex);
+		}
+    }
+
 	@Override
 	public List<Comment> searchCommentsByBlogTitle(String title) throws ServicesException {
 		throw new UnsupportedOperationException("Not supported yet.");

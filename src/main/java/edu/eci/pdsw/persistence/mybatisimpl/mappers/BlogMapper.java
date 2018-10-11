@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 fchaves, salzate
+ * Copyright (C) 2015 hcadavid
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,31 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package edu.eci.pdsw.persistence;
+package edu.eci.pdsw.persistence.mybatisimpl.mappers;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import edu.eci.pdsw.entities.Blog;
-import edu.eci.pdsw.entities.Comment;
 
 /**
  *
  * @author fchaves
  * @author salzate
  */
-public interface BlogDAO {
- 
-    public List<Blog> loadAll() throws PersistenceException;
-    
-    public void save(Blog b) throws PersistenceException;
-    
-    public void update(Blog b) throws PersistenceException;
-    
-    public void addComment(int blogId, Comment comment) throws PersistenceException;
-    
-    public Blog load(int blogID) throws PersistenceException;
+public interface BlogMapper {
 
-    public Blog load(String title) throws PersistenceException;
+	List<Blog> findByUser(@Param("login") String login);
 
-    public List<Blog> loadByUser(String login) throws PersistenceException;
 }

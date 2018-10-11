@@ -3,20 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.BlogMapper">
+<mapper namespace="edu.eci.pdsw.persistence.mybatisimpl.mappers.BlogMapper">
 
-    <resultMap type='User' id='UserResult'>
-        <id property='login' column='login'/>        
-        <result property='name' column='name'/>
-        <result property='lastName' column='lastName'/>
+    <resultMap type='Blog' id='BlogResult'>
+        <id property='id' column='id'/>        
+        <result property='title' column='title'/>
+        <result property='creationDate' column='creation_date'/>
     </resultMap>
 
-    <select id="getUsers" resultMap="UserResult">
+    <select id="findByUser" resultMap="BlogResult" parameterType="string">
         SELECT
-            p.login,
-            p.name,
-            p.lastName
+            b.id,
+            b.title,
+            b.creation_date
         FROM
-            BLOG_USUARIO as p
+            BLOG as b
+        <if test="login != null">
+            WHERE b.author = #{login}
+        </if>
     </select>
 </mapper>
