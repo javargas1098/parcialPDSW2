@@ -30,7 +30,8 @@ import edu.eci.pdsw.services.BlogServices;
  *
  * @author hcadavid
  */
-@ManagedBean(name = "mb")
+@SuppressWarnings("deprecation")
+@ManagedBean(name = "blogBean")
 @SessionScoped
 public class BlogBean extends BasePageBean {
 

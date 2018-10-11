@@ -18,7 +18,7 @@ package edu.eci.pdsw.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
 
-import edu.eci.pdsw.persistence.mybatisimpl.mappers.BlogMapper;
+import edu.eci.pdsw.persistence.mybatisimpl.mappers.UserMapper;
 import edu.eci.pdsw.entities.Blog;
 import edu.eci.pdsw.entities.Comment;
 import edu.eci.pdsw.persistence.BlogDAO;
@@ -33,20 +33,12 @@ import java.util.List;
 public class MyBatisBlogDAO implements BlogDAO {
 
 
-    @Inject
-    BlogMapper blogMapper;
-    
-    
-    
+    // @Inject
+    // BlogMapper blogMapper;
     
     @Override
 	public List<Blog> loadAll() throws PersistenceException {
-    	try {
-    		return blogMapper.getBlog();
-    	}
-    	catch (Exception e) {
-    		throw new PersistenceException("Search blog error:"+e.getLocalizedMessage(), e);
-		}
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
