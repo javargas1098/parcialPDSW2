@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 hcadavid
+ * Copyright (C) 2016 salzate
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,62 +19,39 @@ package edu.eci.pdsw.managedbeans;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
-import edu.eci.pdsw.entities.Blog;
+import edu.eci.pdsw.entities.User;
 import edu.eci.pdsw.services.BlogServices;
 import edu.eci.pdsw.services.ServicesException;
 
 /**
  *
- * @author hcadavid
- * @author fchaves
  * @author salzate
  */
 @SuppressWarnings("deprecation")
-@ManagedBean(name = "blogBean")
-@RequestScoped
-public class BlogBean extends BasePageBean {
-	
-	@ManagedProperty(value = "#{param.user}")
-	private String user;
+@ManagedBean(name = "userBean")
+@SessionScoped
+public class UserBean extends BasePageBean {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3594009161252782831L;
-
+	
 	@Inject
 	private BlogServices blogServices;
 
-	public List<Blog> getData() throws Exception {
-		try {
-			if (user == null) {
-				return blogServices.listAll();
-			} else {
-				return blogServices.searchByUser(user);
-			}
-		} catch (ServicesException ex) {
+    public List<User> getUsers() throws Exception{
+        try {
+            return blogServices.listUsers();
+        } catch (ServicesException ex) {
+            
+            throw ex;
+        }
+        
+    }
 
-			throw ex;
-		}
-
-	}
-
-	/**
-	 * @return the user
-	 */
-	public String getUser() {
-		return user;
-	}
-
-	/**
-	 * @param user the user to set
-	 */
-	public void setUser(String user) {
-		this.user = user;
-	}
-
+    
 }

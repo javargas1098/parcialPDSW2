@@ -18,17 +18,17 @@ package edu.eci.pdsw.persistence.mybatisimpl.mappers;
 
 import java.util.List;
 
-import edu.eci.pdsw.entities.User;
-import edu.eci.pdsw.samples.entities.Cliente;
+import org.apache.ibatis.annotations.Param;
+
+import edu.eci.pdsw.entities.Blog;
 
 /**
  *
- * @author hcadavid
+ * @author fchaves
+ * @author salzate
  */
-public interface UserMapper {
+public interface BlogMapper {
 
-	public int insertUser(@Param("user") User uset);
-	
-    public List<User> getUsers();
+	List<Blog> findByUser(@Param("login") String login);
 
 }

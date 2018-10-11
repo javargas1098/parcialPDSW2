@@ -23,6 +23,13 @@ public interface BlogServices {
      */
     public List<Blog> listAll() throws ServicesException;
 
+	/**
+     * Consultar todos los blogs a partir de un login de usuario
+     * @return la lista de comentarios
+     * @throws ServicesException 
+     */
+    public List<Blog> searchByUser(String login) throws ServicesException;
+
     
     /**
      * Consultar todos los comentarios a partir de un título de un blog
