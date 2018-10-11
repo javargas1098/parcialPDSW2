@@ -21,7 +21,8 @@ public class MyBatisUserDAO implements UserDAO {
 		try {
 			return userMapper.getUsers();			
 		} catch(Exception e) {
-			throw new PersistenceException("Load all persistence error"+e.getLocalizedMessage());
+			e.printStackTrace();
+			throw new PersistenceException("Load all persistence error");
 		}
 	}
 
@@ -30,7 +31,8 @@ public class MyBatisUserDAO implements UserDAO {
 		try {
 			userMapper.insertUser(user);			
 		} catch(Exception e) {
-			throw new PersistenceException("Load all persistence error"+e.getLocalizedMessage());
+			e.printStackTrace();
+			throw new PersistenceException("Load all persistence error");
 		}
 	}
 	

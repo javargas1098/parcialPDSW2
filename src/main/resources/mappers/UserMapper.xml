@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="edu.eci.pdsw.persistence.mybatisimpl.mappers.UserMapper">
+
     <resultMap type='User' id='UserResult'>
         <id property='login' column='login'/>        
         <result property='name' column='name'/>
@@ -19,10 +20,11 @@
             BLOG_USUARIO as p
     </select>
     
-     <insert id="insertUser" keyProperty="user.login" keyColumn="login">
-        insert into BLOG_USUARIO SET
-        login=#{user.login},
-        name=#{user.name},
-        lastname=#{user.lastname},
+     <insert id="insertUser" parameterType="edu.eci.pdsw.entities.User">
+        insert into BLOG_USUARIO(login,name,lastname) values (#{login},#{name},#{lastName})
     </insert>
+    
+    <delete id="deleteAll">
+        delete from BLOG_USUARIO
+    </delete>
 </mapper>

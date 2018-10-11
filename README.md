@@ -10,7 +10,7 @@ searchCommentsByBlogTitle## Escuela Colombiana de Ingeniería
 * Se puede consultar en la Web: APIs/Documentación de lenguaje y frameworks (Primefaces, Guice, MyBatis, etc), y enunciados de los laboratorios (se pueden revisar los fuentes incluidos con los dichos enunciados).
 * No se permite: Usar memorias USB, acceder a redes sociales, clientes de correo, o sistemas de almacenamiento en la nube (Google Drive, DropBox, etc). El uso de éstos implicará anulación.
 * Clone el proyecto con GIT, NO lo descargue directamente.
-* NO modifique los indicado en `comentarios.xhtml`.
+* NO modifique los indicado en `blog.xhtml` y `users.xhtml`.
 * El filtrado y ordenamiento de los datos DEBE realizarse en el motor de base de datos, a través del uso de SQL. Consultar todos los datos y filtrarlos en el servidor de aplicaciones -que es supremamente INEFICIENTE- se evaluará como INCORRECTO.
 
 
@@ -60,11 +60,11 @@ Mostrar los nombres y login de usuarios que han escrito comentarios con palabras
 
 1.  (20%) A partir de la especificación hecha en los métodos
     `searchCommentsByBlogTitle` y `searchOffensiveLanguageComments` de la fachada de
-    servicios (la parte lógica de la aplicación), implemente sólo una prueba (la que considere más importante para validar las especificaciones y los criterios de aceptación). Siga el esquema usado en ServicesJUnitTest para poblar la base de datos volátil y verificar el comportamiento de las operaciones de la lógica.
+    servicios (la parte lógica de la aplicación), implemente sólo una prueba (la que considere más importante para validar las especificaciones y los criterios de aceptación). Siga el esquema usado en `BlogServicesTest` para poblar la base de datos volátil y verificar el comportamiento de las operaciones de la lógica.
 
-2.  (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en `comentarios.xhtml`.
+2.  (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en `comments.xhtml`.
 
-3.  (40%)Implemente la historia de usuario #2, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en `consultarUsuariosOfensivos.xhtml`.
+3.  (40%)Implemente la historia de usuario #2, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en `searchOffensiveUsers.xhtml`.
 
 
 ## Entrega

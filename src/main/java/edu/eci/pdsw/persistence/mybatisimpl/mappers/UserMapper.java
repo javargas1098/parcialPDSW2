@@ -31,8 +31,10 @@ import edu.eci.pdsw.entities.User;
  */
 public interface UserMapper {
 
-	public int insertUser(@Param("user") User user);
+	public void insertUser(User user);
 	
     public List<User> getUsers();
+    
+    public void deleteAll();
 
 }

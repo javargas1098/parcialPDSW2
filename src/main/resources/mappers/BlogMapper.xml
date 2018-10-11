@@ -22,4 +22,7 @@
             WHERE b.author = #{login}
         </if>
     </select>
+    <delete id="deleteAll">
+        delete from BLOG
+    </delete>
 </mapper>

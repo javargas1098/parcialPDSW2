@@ -40,6 +40,7 @@ import org.junit.Test;
 
 import com.google.inject.Inject;
 
+
 /**
  *
  * @author hcadavid
@@ -84,9 +85,9 @@ public class BlogServicesTest {
     	qt().forAll(lists().of(Generators.users()).ofSizeBetween(1, 5))
     		.check((users) -> {
     			Hashtable<String, User> initialUsers = new Hashtable<>();
-    			
+    				
     			try {
-	    			for(User user : users) {
+   	    			for(User user : users) {
 	    				blogServices.createUser(user);
 	    				initialUsers.put(user.getLogin(), user);
 	    			}
@@ -99,14 +100,12 @@ public class BlogServicesTest {
 	    				}
 	    			}
 	    			
-	    			return initialUsers.size() == allUsers.size();
+	    			return initialUsers.size() <= allUsers.size();
     			} 
     			catch(ServicesException ex) {
     				ex.printStackTrace();
     				return false;
     			}
-    			
-    			
     			
     	    });
     	

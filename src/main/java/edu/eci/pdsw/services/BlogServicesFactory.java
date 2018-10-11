@@ -5,6 +5,7 @@ import static com.google.inject.Guice.createInjector;
 import java.util.Optional;
 
 import org.mybatis.guice.XMLMyBatisModule;
+import org.mybatis.guice.datasource.helper.JdbcHelper;
 
 import com.google.inject.Injector;
 
@@ -20,12 +21,14 @@ public class BlogServicesFactory {
 
     private static Optional<Injector> optInjector = Optional.empty();
 
-    private Injector myBatisInjector(String env, String pathResource) {
+    private Injector myBatisInjector(String env, String pathResource, JdbcHelper jdbcHelper) {
         return createInjector(new XMLMyBatisModule() {
             @Override
             protected void initialize() {
                 setEnvironmentId(env);
+                install(jdbcHelper);
                 setClassPathResource(pathResource);
+                
                 bind(BlogServices.class).to(BlogServicesImpl.class);
                 bind(UserDAO.class).to(MyBatisUserDAO.class);
                 bind(BlogDAO.class).to(MyBatisBlogDAO.class);
@@ -38,7 +41,7 @@ public class BlogServicesFactory {
 
     public BlogServices getBlogServices(){
         if (!optInjector.isPresent()) {
-            optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
+            optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml", JdbcHelper.MySQL));
         }
 
         return optInjector.get().getInstance(BlogServices.class);
@@ -47,7 +50,7 @@ public class BlogServicesFactory {
 
     public BlogServices getBlogServicesTesting(){
         if (!optInjector.isPresent()) {
-            optInjector = Optional.of(myBatisInjector("test","mybatis-config-h2.xml"));
+            optInjector = Optional.of(myBatisInjector("test","mybatis-config-h2.xml", JdbcHelper.H2_FILE));
         }
 
         return optInjector.get().getInstance(BlogServices.class);
