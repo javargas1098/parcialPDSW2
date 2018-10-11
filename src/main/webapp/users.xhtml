@@ -21,11 +21,9 @@
 			<h:outputText value="#{user.lastName}" />
 		</p:column>
 		<p:column headerText="Last Name">
-			<h:form>
-				<h:commandLink action="blog" value="View Blog">
-					<f:param name="user" value="#{user.login}" />
-				</h:commandLink>
-			</h:form>
+<!-- 			<h:form> -->
+				<p:button outcome="blog?user=#{user.login}" value="View Blog" />
+<!-- 			</h:form> -->
 		</p:column>
 	</p:dataTable>
 </h:body>
