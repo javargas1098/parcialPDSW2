@@ -8,9 +8,17 @@ import edu.eci.pdsw.entities.Comment;
 import edu.eci.pdsw.entities.User;
 
 public interface BlogServices {
+	
+	/**
+     * Crear usuario
+     * @return la lista de comentarios
+     * @throws ServicesException 
+     */
+    public void createUser(User user) throws ServicesException;
+
 
     /**
-     * Consultar todos los comentarios a partir de un título de un blog
+     * Consultar todos los usuarios
      * @return la lista de comentarios
      * @throws ServicesException 
      */

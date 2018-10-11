@@ -12,12 +12,13 @@ import edu.eci.pdsw.persistence.BlogDAO;
 import edu.eci.pdsw.persistence.UserDAO;
 import edu.eci.pdsw.persistence.mybatisimpl.MyBatisBlogDAO;
 import edu.eci.pdsw.persistence.mybatisimpl.MyBatisUserDAO;
+import edu.eci.pdsw.services.impl.BlogServicesImpl;
 
 public class BlogServicesFactory {
 
 	private static BlogServicesFactory instance = new BlogServicesFactory();
 
-    private static Optional<Injector> optInjector;
+    private static Optional<Injector> optInjector = Optional.empty();
 
     private Injector myBatisInjector(String env, String pathResource) {
         return createInjector(new XMLMyBatisModule() {
@@ -25,6 +26,7 @@ public class BlogServicesFactory {
             protected void initialize() {
                 setEnvironmentId(env);
                 setClassPathResource(pathResource);
+                bind(BlogServices.class).to(BlogServicesImpl.class);
                 bind(UserDAO.class).to(MyBatisUserDAO.class);
                 bind(BlogDAO.class).to(MyBatisBlogDAO.class);
             }
@@ -32,7 +34,6 @@ public class BlogServicesFactory {
     }
 
     private BlogServicesFactory() {
-		optInjector = Optional.empty();
     }
 
     public BlogServices getBlogServices(){

@@ -17,8 +17,6 @@
 package edu.eci.pdsw.tests;
 
 import edu.eci.pdsw.entities.User;
-import edu.eci.pdsw.samples.services.ServiciosAlquiler;
-import edu.eci.pdsw.samples.services.ServiciosAlquilerFactory;
 import edu.eci.pdsw.services.BlogServices;
 import edu.eci.pdsw.services.BlogServicesFactory;
 import edu.eci.pdsw.services.ServicesException;
@@ -60,19 +58,11 @@ public class BlogServicesTest {
 
     @Before
     public void setUp() {
+    	
     }
 
     @After
     public void clearDB() throws SQLException {
-    	/*
-        Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");
-        Statement stmt = conn.createStatement();
-        stmt.execute("delete from BLOG");
-        stmt.execute("delete from BLOG_USUARIO");
-        stmt.execute("delete from BLOG_COMMENT");
-        conn.commit();
-        conn.close();
-        */
     }
 
     /**
@@ -93,45 +83,31 @@ public class BlogServicesTest {
 
     	qt().forAll(lists().of(Generators.users()).ofSizeBetween(1, 5))
     		.check((users) -> {
-    	    	Connection conn = null;
-				try {
-					conn = getConnection();
+    			Hashtable<String, User> initialUsers = new Hashtable<>();
+    			
+    			try {
+	    			for(User user : users) {
+	    				blogServices.createUser(user);
+	    				initialUsers.put(user.getLogin(), user);
+	    			}
 	    			
-					String query = "INSERT INTO `BLOG_USUARIO` (`login`, `name`, `lastname`) VALUES (?,?,?)";
-
-					Hashtable<String, User> usersMap = new Hashtable<>();
-					for(User user : users) {
-						PreparedStatement st = conn.prepareStatement(query);
-						st.setString(1, user.getLogin());
-						st.setString(2, user.getName());
-						st.setString(3, user.getLastName());
-						int rowsAffected = st.executeUpdate();
-						if (rowsAffected == 0) {
-							throw new SQLException("User not created");
-						}
-						usersMap.put(user.getLogin(),user);
-						st.close();
-					}
-					
-					
-					
-					
-				    // Clear inserted records	
-	    	        conn.rollback();
-	    			return true;
-	    		} catch (SQLException e) {
-					e.printStackTrace();
-					return false;
-				} finally {
-					if (conn != null) {
-						try {
-	    	                conn.close();
-						} catch(SQLException e) {
-							e.printStackTrace();
-							return false;
-						}
-					}
-				}
+	    			List<User> allUsers = blogServices.listUsers();
+	    			
+	    			for(User user : allUsers) {
+	    				if(!initialUsers.containsKey(user.getLogin())) {
+	    					return false;
+	    				}
+	    			}
+	    			
+	    			return initialUsers.size() == allUsers.size();
+    			} 
+    			catch(ServicesException ex) {
+    				ex.printStackTrace();
+    				return false;
+    			}
+    			
+    			
+    			
     	    });
     	
 

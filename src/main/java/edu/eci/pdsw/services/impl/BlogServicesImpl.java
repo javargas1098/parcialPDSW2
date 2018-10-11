@@ -24,6 +24,15 @@ import java.util.List;
  */
 public class BlogServicesImpl implements BlogServices {
 
+	@Override
+	public void createUser(User user) throws ServicesException {
+		 try {
+			userDAO.save(user);
+		} catch (PersistenceException ex) {
+			throw new ServicesException("Create user error:"+ex.getLocalizedMessage(), ex);
+		}		
+	}
+
 	@Inject
 	private BlogDAO blogDAO;
 	

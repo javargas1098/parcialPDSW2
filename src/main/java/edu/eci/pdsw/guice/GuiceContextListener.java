@@ -17,6 +17,7 @@ import edu.eci.pdsw.persistence.mybatisimpl.MyBatisUserDAO;
 import edu.eci.pdsw.services.BlogServices;
 import edu.eci.pdsw.services.impl.BlogServicesImpl;
 
+
 public class GuiceContextListener implements ServletContextListener {
 
 	public void contextDestroyed(ServletContextEvent servletContextEvent) {

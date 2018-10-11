@@ -1,4 +1,4 @@
-## Escuela Colombiana de Ingeniería
+searchCommentsByBlogTitle## Escuela Colombiana de Ingeniería
 
 ### PDSW – Procesos de desarrollo de Software
 ### Parcial Segundo Tercio
@@ -59,7 +59,7 @@ Mostrar los nombres y login de usuarios que han escrito comentarios con palabras
 
 
 1.  (20%) A partir de la especificación hecha en los métodos
-    `consultarBlogsPorTituloYUsuario` y `consultarUsuariosOfensivos` de la fachada de
+    `searchCommentsByBlogTitle` y `searchOffensiveLanguageComments` de la fachada de
     servicios (la parte lógica de la aplicación), implemente sólo una prueba (la que considere más importante para validar las especificaciones y los criterios de aceptación). Siga el esquema usado en ServicesJUnitTest para poblar la base de datos volátil y verificar el comportamiento de las operaciones de la lógica.
 
 2.  (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en `comentarios.xhtml`.

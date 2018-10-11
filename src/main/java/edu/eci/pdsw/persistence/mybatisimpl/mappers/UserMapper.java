@@ -18,8 +18,12 @@ package edu.eci.pdsw.persistence.mybatisimpl.mappers;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import edu.eci.pdsw.entities.User;
-import edu.eci.pdsw.samples.entities.Cliente;
+
+
+
 
 /**
  *
@@ -27,7 +31,7 @@ import edu.eci.pdsw.samples.entities.Cliente;
  */
 public interface UserMapper {
 
-	public int insertUser(@Param("user") User uset);
+	public int insertUser(@Param("user") User user);
 	
     public List<User> getUsers();
 
