@@ -20,6 +20,8 @@ import java.util.List;
 import java.util.Set;
 
 import edu.eci.pdsw.entities.Blog;
+import edu.eci.pdsw.entities.User;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
@@ -30,8 +32,8 @@ import org.apache.ibatis.annotations.Select;
  *
  * @author hcadavid
  */
-public interface BlogMapper {
+public interface UserMapper {
 
-    List<Blog> getBlog();
+    List<User> getUsers();
 
 }
