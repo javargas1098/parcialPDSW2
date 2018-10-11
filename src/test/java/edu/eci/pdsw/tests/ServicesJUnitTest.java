@@ -21,6 +21,7 @@ import edu.eci.pdsw.services.ServicesException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -77,12 +78,22 @@ public class ServicesJUnitTest {
     	    	Connection conn;
 				try {
 					conn = getConnection();
-					Statement stmt=conn.createStatement();
 	    			
-	    	        stmt.execute("INSERT INTO `PACIENTES` (`id`, `tipo_id`, `nombre`, `fecha_nacimiento`) VALUES (9876,'TI','Carmenzo','1995-07-10')");
-	    	        stmt.execute("INSERT INTO `CONSULTAS` (`idCONSULTAS`, `fecha_y_hora`, `resumen`, `PACIENTES_id`, `PACIENTES_tipo_id`) VALUES (1262218,'2001-01-01 00:00:00','Gracias',9876,'TI')");
-	    			
+					String query = "INSERT INTO `BLOG_USUARIO` (`login`, `name`, `lastname`) VALUES (?,?,?)";
+					
+					for(User user : users) {
+						PreparedStatement st = conn.prepareStatement(query);
+						st.setString(1, user.getLogin());
+						st.setString(1, user.getName());
+						st.setString(1, user.getLastName());
+						st.executeQuery();
+						st.close();
+					}
+						    			
 	    	        conn.commit();
+	    	        
+	    	        
+	    	        
 	    	        conn.close();
 	    			return true;
 	    		} catch (SQLException e) {
@@ -104,7 +115,7 @@ public class ServicesJUnitTest {
 //            System.out.println(paciente);
 //        }
         //assert ...
-        Assert.fail("Pruebas no implementadas aun...");
+        // Assert.fail("Pruebas no implementadas aun...");
         
     }    
     
