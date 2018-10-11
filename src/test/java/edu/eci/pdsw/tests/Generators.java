@@ -7,7 +7,7 @@ import edu.eci.pdsw.entities.User;
 
 
 public class Generators {
-	public Gen<User> users() {
+	static public Gen<User> users() {
 		return strings().allPossible().ofLengthBetween(1, 20)
 				.zip(strings().allPossible().ofLengthBetween(10, 50),
 						strings().allPossible().ofLengthBetween(10, 50),

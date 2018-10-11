@@ -16,12 +16,18 @@
  */
 package edu.eci.pdsw.tests;
 
+import edu.eci.pdsw.entities.User;
 import edu.eci.pdsw.services.ServicesException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
+
+import static org.quicktheories.QuickTheory.qt;
+import static org.quicktheories.generators.SourceDSL.lists;
+
 
 import org.junit.After;
 import org.junit.Assert;
@@ -45,8 +51,9 @@ public class ServicesJUnitTest {
     public void clearDB() throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");
         Statement stmt = conn.createStatement();
-        stmt.execute("delete from CONSULTAS");
-        stmt.execute("delete from PACIENTES");
+        stmt.execute("delete from BLOG");
+        stmt.execute("delete from BLOG_USUARIO");
+        stmt.execute("delete from BLOG_COMMENT");
         conn.commit();
         conn.close();
     }
@@ -64,14 +71,28 @@ public class ServicesJUnitTest {
     public void pruebaCeroTest() throws SQLException, ServicesException {
         //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
         //de equivalencia correspondiente
-        Connection conn=getConnection();
-        Statement stmt=conn.createStatement();
 
-        stmt.execute("INSERT INTO `PACIENTES` (`id`, `tipo_id`, `nombre`, `fecha_nacimiento`) VALUES (9876,'TI','Carmenzo','1995-07-10')");
-        stmt.execute("INSERT INTO `CONSULTAS` (`idCONSULTAS`, `fecha_y_hora`, `resumen`, `PACIENTES_id`, `PACIENTES_tipo_id`) VALUES (1262218,'2001-01-01 00:00:00','Gracias',9876,'TI')");
+    	qt().forAll(lists().of(Generators.users()).ofSizeBetween(1, 20))
+    		.check((users) -> {
+    	    	Connection conn;
+				try {
+					conn = getConnection();
+					Statement stmt=conn.createStatement();
+	    			
+	    	        stmt.execute("INSERT INTO `PACIENTES` (`id`, `tipo_id`, `nombre`, `fecha_nacimiento`) VALUES (9876,'TI','Carmenzo','1995-07-10')");
+	    	        stmt.execute("INSERT INTO `CONSULTAS` (`idCONSULTAS`, `fecha_y_hora`, `resumen`, `PACIENTES_id`, `PACIENTES_tipo_id`) VALUES (1262218,'2001-01-01 00:00:00','Gracias',9876,'TI')");
+	    			
+	    	        conn.commit();
+	    	        conn.close();
+	    			return true;
+	    		} catch (SQLException e) {
+					e.printStackTrace();
+					return false;
+				}
+    	    });
+    	
 
-        conn.commit();
-        conn.close();
+
 	
         //Realizar la operacion de la logica y la prueba
         
