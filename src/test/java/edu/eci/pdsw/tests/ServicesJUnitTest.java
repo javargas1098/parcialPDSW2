@@ -16,15 +16,12 @@
  */
 package edu.eci.pdsw.tests;
 
-import edu.eci.pdsw.entities.Paciente;
-import edu.eci.pdsw.entities.Consulta;
 import edu.eci.pdsw.services.ServicesException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.Assert;

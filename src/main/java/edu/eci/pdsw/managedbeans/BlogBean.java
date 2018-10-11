@@ -22,8 +22,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
-import edu.eci.pdsw.entities.Paciente;
-import edu.eci.pdsw.entities.TipoIdentificacion;
+import edu.eci.pdsw.entities.Blog;
 import edu.eci.pdsw.services.ServicesException;
 import edu.eci.pdsw.services.BlogServices;
 
@@ -33,24 +32,19 @@ import edu.eci.pdsw.services.BlogServices;
  */
 @ManagedBean(name = "mb")
 @SessionScoped
-public class PacientesBean extends BasePageBean {
+public class BlogBean extends BasePageBean {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3594009161252782831L;
+	
 	@Inject
-	private BlogServices servicio;
+	private BlogServices blogServices;
 
-    TipoIdentificacion tipoIdentificacion = TipoIdentificacion.CC;
-
-    public void setTipoIdentificacion(TipoIdentificacion tipoIdentificacion) {
-        this.tipoIdentificacion = tipoIdentificacion;
-    }
-
-    public TipoIdentificacion getTipoIdentificacion() {
-        return tipoIdentificacion;
-    }
-
-    public List<Paciente> getData() throws Exception{
+    public List<Blog> getData() throws Exception{
         try {
-            return servicio.consultarPacientes();
+            return blogServices.listAll();
         } catch (ServicesException ex) {
             
             throw ex;
@@ -58,8 +52,5 @@ public class PacientesBean extends BasePageBean {
         
     }
 
-    public TipoIdentificacion[] getTiposIdentificacion() {
-        return TipoIdentificacion.values();
-    }
     
 }

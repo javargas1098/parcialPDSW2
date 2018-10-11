@@ -8,6 +8,14 @@ import edu.eci.pdsw.entities.Comment;
 
 public interface BlogServices {
 
+	/**
+     * Consultar todos los comentarios a partir de un título de un blog
+     * @return la lista de comentarios
+     * @throws ServicesException 
+     */
+    public List<Blog> listAll() throws ServicesException;
+
+    
     /**
      * Consultar todos los comentarios a partir de un título de un blog
      * @return la lista de comentarios

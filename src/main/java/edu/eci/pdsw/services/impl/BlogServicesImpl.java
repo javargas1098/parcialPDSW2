@@ -22,7 +22,12 @@ import java.util.List;
  */
 public class BlogServicesImpl implements BlogServices {
 
-    @Inject
+    @Override
+	public List<Blog> listAll() throws ServicesException {
+    	throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Inject
     private BlogDAO blogDAO;
 
 	@Override

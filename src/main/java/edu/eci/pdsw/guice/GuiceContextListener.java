@@ -11,7 +11,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 import edu.eci.pdsw.persistence.BlogDAO;
-import edu.eci.pdsw.persistence.mybatisimpl.MyBatisDAOPaciente;
+import edu.eci.pdsw.persistence.mybatisimpl.MyBatisBlogDAO;
 import edu.eci.pdsw.services.BlogServices;
 import edu.eci.pdsw.services.impl.BlogServicesImpl;
 
@@ -34,7 +34,7 @@ public class GuiceContextListener implements ServletContextListener {
 				setClassPathResource("mybatis-config.xml");
 
                 bind(BlogServices.class).to(BlogServicesImpl.class);
-                bind(BlogDAO.class).to(MyBatisDAOPaciente.class);
+                bind(BlogDAO.class).to(MyBatisBlogDAO.class);
 			}
 		}
 
