@@ -10,6 +10,7 @@
 </h:head>
 <h:body>
 	<h1>Blogs from #{blogBean.user}</h1>
+	<p:button outcome="users" value="Back to Users" />
 	<p:dataTable id="blog_table" var="blog" value="#{blogBean.data}">
 		<p:column headerText="Id">
 			<h:outputText value="#{blog.id}" />
