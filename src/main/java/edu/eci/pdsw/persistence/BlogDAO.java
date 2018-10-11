@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 hcadavid
+ * Copyright (C) 2018 fchaves, salzate
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,24 +18,25 @@ package edu.eci.pdsw.persistence;
 
 import java.util.List;
 
-import edu.eci.pdsw.entities.Consulta;
-import edu.eci.pdsw.entities.Paciente;
-import edu.eci.pdsw.entities.TipoIdentificacion;
+import edu.eci.pdsw.entities.Blog;
+import edu.eci.pdsw.entities.Comment;
 
 /**
  *
- * @author hcadavid
+ * @author fchaves
+ * @author salzate
  */
-public interface DaoPaciente {
+public interface BlogDAO {
  
-    public Paciente load(int id, TipoIdentificacion tipoIdentificacion) throws PersistenceException;
+    public List<Blog> loadAll() throws PersistenceException;
     
-    public List<Paciente> loadAll() throws PersistenceException;
+    public void save(Blog b) throws PersistenceException;
     
-    public void save(Paciente e) throws PersistenceException;
+    public void update(Blog b) throws PersistenceException;
     
-    public void update(Paciente e) throws PersistenceException;
+    public void addComment(int blogId, Comment comment) throws PersistenceException;
     
-    public void addConsulta(int id, TipoIdentificacion tipoId, Consulta c) throws PersistenceException;
-    
+    public Blog load(int blogID) throws PersistenceException;
+
+    public Blog load(String title) throws PersistenceException;
 }

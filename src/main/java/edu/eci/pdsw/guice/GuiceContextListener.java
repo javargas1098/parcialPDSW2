@@ -10,10 +10,10 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import edu.eci.pdsw.persistence.DaoPaciente;
+import edu.eci.pdsw.persistence.BlogDAO;
 import edu.eci.pdsw.persistence.mybatisimpl.MyBatisDAOPaciente;
-import edu.eci.pdsw.services.ServiciosPaciente;
-import edu.eci.pdsw.services.impl.ServiciosPacienteImpl;
+import edu.eci.pdsw.services.BlogServices;
+import edu.eci.pdsw.services.impl.BlogServicesImpl;
 
 public class GuiceContextListener implements ServletContextListener {
 
@@ -33,8 +33,8 @@ public class GuiceContextListener implements ServletContextListener {
 
 				setClassPathResource("mybatis-config.xml");
 
-                bind(ServiciosPaciente.class).to(ServiciosPacienteImpl.class);
-                bind(DaoPaciente.class).to(MyBatisDAOPaciente.class);
+                bind(BlogServices.class).to(BlogServicesImpl.class);
+                bind(BlogDAO.class).to(MyBatisDAOPaciente.class);
 			}
 		}
 

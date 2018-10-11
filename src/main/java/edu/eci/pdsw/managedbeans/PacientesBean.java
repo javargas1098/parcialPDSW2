@@ -24,8 +24,8 @@ import javax.inject.Inject;
 
 import edu.eci.pdsw.entities.Paciente;
 import edu.eci.pdsw.entities.TipoIdentificacion;
-import edu.eci.pdsw.services.ExcepcionServiciosSuscripciones;
-import edu.eci.pdsw.services.ServiciosPaciente;
+import edu.eci.pdsw.services.ServicesException;
+import edu.eci.pdsw.services.BlogServices;
 
 /**
  *
@@ -36,7 +36,7 @@ import edu.eci.pdsw.services.ServiciosPaciente;
 public class PacientesBean extends BasePageBean {
 
 	@Inject
-	private ServiciosPaciente servicio;
+	private BlogServices servicio;
 
     TipoIdentificacion tipoIdentificacion = TipoIdentificacion.CC;
 
@@ -51,7 +51,7 @@ public class PacientesBean extends BasePageBean {
     public List<Paciente> getData() throws Exception{
         try {
             return servicio.consultarPacientes();
-        } catch (ExcepcionServiciosSuscripciones ex) {
+        } catch (ServicesException ex) {
             
             throw ex;
         }

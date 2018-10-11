@@ -26,48 +26,72 @@ public class Comment {
     //el identificador es asignado por la base de datos,
     //por eso no se incluye en el constructor.
     private int id;
-    
     private Date creationDate;
+    private User author;
     private String content;
-
     
     
-    public Comment(Date fechayHora, String resumen) {
-        this.id=-1;
-        this.fechayHora = fechayHora;
-        this.resumen = resumen;
-    }    
+    public Comment(Date creationDate, User author, String content) {
+		super();
+		this.id = -1;
+		this.creationDate = creationDate;
+		this.author = author;
+		this.content = content;
+	}
+
     
-    public Comment() {
-    }
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public Date getFechayHora() {
-        return fechayHora;
-    }
 
-    public void setFechayHora(Date fechayHora) {
-        this.fechayHora = fechayHora;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getResumen() {
-        return resumen;
-    }
 
-    public void setResumen(String resumen) {
-        this.resumen = resumen;
-    }
 
-    @Override
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+
+
+	public User getAuthor() {
+		return author;
+	}
+
+
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
+
+
+
+	public String getContent() {
+		return content;
+	}
+
+
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+
+
+	@Override
     public String toString() {
-        return "Consulta { id: "+id+", fechayHora: "+fechayHora+", resumen: "+resumen+" }";
+        return "Comment { id: "+id+", author: "+author+", creationDate: "+creationDate+", content: "+content+" }";
     }
     
     

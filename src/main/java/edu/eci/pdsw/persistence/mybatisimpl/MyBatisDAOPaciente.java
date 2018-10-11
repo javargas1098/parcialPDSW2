@@ -22,7 +22,7 @@ import edu.eci.pdsw.persistence.mybatisimpl.mappers.PacienteMapper;
 import edu.eci.pdsw.entities.Consulta;
 import edu.eci.pdsw.entities.Paciente;
 import edu.eci.pdsw.entities.TipoIdentificacion;
-import edu.eci.pdsw.persistence.DaoPaciente;
+import edu.eci.pdsw.persistence.BlogDAO;
 import edu.eci.pdsw.persistence.PersistenceException;
 
 import java.util.List;
@@ -31,7 +31,7 @@ import java.util.List;
  *
  * @author hcadavid
  */
-public class MyBatisDAOPaciente implements DaoPaciente {
+public class MyBatisDAOPaciente implements BlogDAO {
 
 
     @Inject

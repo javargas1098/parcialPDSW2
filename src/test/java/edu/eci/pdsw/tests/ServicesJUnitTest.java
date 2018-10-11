@@ -18,7 +18,7 @@ package edu.eci.pdsw.tests;
 
 import edu.eci.pdsw.entities.Paciente;
 import edu.eci.pdsw.entities.Consulta;
-import edu.eci.pdsw.services.ExcepcionServiciosSuscripciones;
+import edu.eci.pdsw.services.ServicesException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -64,7 +64,7 @@ public class ServicesJUnitTest {
     }
     
     @Test
-    public void pruebaCeroTest() throws SQLException, ExcepcionServiciosSuscripciones {
+    public void pruebaCeroTest() throws SQLException, ServicesException {
         //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
         //de equivalencia correspondiente
         Connection conn=getConnection();

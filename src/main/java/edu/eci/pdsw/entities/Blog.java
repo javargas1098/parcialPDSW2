@@ -29,68 +29,81 @@ import java.util.Set;
 public class Blog {
     
     private int id;
-    private String nombre;
-    private Date fechaNacimiento;
-    List<Comment> consultas;
+    private User author;
+    private String title;
+    private Date creationDate;
+    List<Comment> comments;
     
-
-    public Blog(int id, TipoIdentificacion tipo_id, String nombre, Date fechaNacimiento) {
-        this.id = id;
-        this.tipo_id = tipo_id;
-        this.nombre = nombre;
-        this.fechaNacimiento = fechaNacimiento;
-        consultas=new ArrayList<>();
-    }
+    //el identificador es asignado por la base de datos,
+    //por eso no se incluye en el constructor.
+    public Blog(User author, String title, Date creationDate, List<Comment> comments) {
+		super();
+		this.id = -1;
+		this.author = author;
+		this.title = title;
+		this.creationDate = creationDate;
+		this.comments = comments;
+	}
 
     public Blog() {
-        consultas=new ArrayList<>();
+    	this.comments = new ArrayList<>();
     }
+   
+	public int getId() {
+		return id;
+	}
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public TipoIdentificacion getTipo_id() {
-        return tipo_id;
-    }
 
-    public void setTipo_id(TipoIdentificacion tipo_id) {
-        this.tipo_id = tipo_id;
-    }
+	public User getAuthor() {
+		return author;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setAuthor(User author) {
+		this.author = author;
+	}
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public List<Consulta> getConsultas() {
-        return consultas;
-    }
 
-    public void setConsultas(List<Consulta> consultas) {
-        this.consultas = consultas;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    @Override
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+
+	@Override
     public String toString() {
-        StringBuffer rep = new StringBuffer("Paciente: { id:"+id+", tipo_id:"+tipo_id+", nombre: "+nombre+", fechaNacimiento: "+fechaNacimiento+", consultas : [\n");
-        for (Consulta c:consultas){
-            rep.append(c+"\n");
+        StringBuffer rep = new StringBuffer("Blog: { id:"+id+", author: "+author+", title: "+title+", creationDate: "+creationDate+", comments : [\n");
+        for (Comment comment:comments){
+            rep.append(comment+"\n");
         }
         rep.append("]");
         return rep.toString();
