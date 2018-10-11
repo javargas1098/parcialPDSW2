@@ -11,9 +11,9 @@
     </properties>
 
     <typeAliases>
-        <typeAlias type='edu.eci.pdsw.samples.entities.User' alias='User'/>
-        <typeAlias type='edu.eci.pdsw.samples.entities.Blog' alias='Blog'/>
-        <typeAlias type='edu.eci.pdsw.samples.entities.Comment' alias='Comment'/>
+        <typeAlias type='edu.eci.pdsw.entities.User' alias='User'/>
+        <typeAlias type='edu.eci.pdsw.entities.Blog' alias='Blog'/>
+        <typeAlias type='edu.eci.pdsw.entities.Comment' alias='Comment'/>
     </typeAliases>
 
     <environments default="development">
