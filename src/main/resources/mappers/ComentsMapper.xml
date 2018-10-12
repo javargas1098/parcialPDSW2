@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.pdsw.persistence.mybatisimpl.mappers.ComentsMapper">
+
+	<resultMap type='Comment' id='ComentResult'>
+		<id property='id' column='id' />
+		<result property='creationDate' column='creation_date' />
+		<result property='content' column='content' />
+		<association property="author" javaType="User"
+			resultMap="edu.eci.pdsw.persistence.mybatisimpl.mappers.UserMapper.UserResult" />
+	</resultMap>
+	<resultMap type="Blog" id="ComentResult1">
+    	<id property="id" column="id"/>
+    	<result property="title" column="title"/> 
+    	<result property="creationDate" column="creation_date"/>
+        <collection property='comments' ofType='Comment' resultMap='ComentResult'></collection>  
+    </resultMap>
+
+	<select id="findByComent" resultMap="ComentResult"
+		parameterType="string">
+		SELECT
+		a.name,
+		a.login,
+		c.content,
+		c.creation_date
+		FROM
+		BLOG_COMMENT as c
+		LEFT JOIN
+		BLOG as b ON c.blog_id = b.id
+		LEFT JOIN
+		BLOG_USUARIO as a ON a.login = c.author
+
+		WHERE b.title = #{Title}
+		ORDER
+		BY
+		c.creation_date DESC
+	</select>
+
+	<select id="findByOffensiveLanguage" resultMap="ComentResult1"
+		>
+		SELECT
+		a.name,
+		a.login,
+		b.id,
+		b.title,
+		c.content
+		FROM
+		BLOG_COMMENT as c
+		LEFT JOIN
+		BLOG as b ON c.blog_id = b.id
+		LEFT JOIN
+		BLOG_USUARIO a ON a.login = c.author
+
+		WHERE LOWER(c.content) LIKE
+		'%burro%' or LOWER(c.content) LIKE '%tonto%'
+		ORDER BY a.login DESC
+	</select>
+
+
+</mapper>

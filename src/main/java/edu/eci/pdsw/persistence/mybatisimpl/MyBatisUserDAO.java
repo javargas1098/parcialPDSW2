@@ -22,7 +22,7 @@ public class MyBatisUserDAO implements UserDAO {
 			return userMapper.getUsers();			
 		} catch(Exception e) {
 			e.printStackTrace();
-			throw new PersistenceException("Load all persistence error");
+			throw new PersistenceException("Load all persistence error"+e.getMessage());
 		}
 	}
 

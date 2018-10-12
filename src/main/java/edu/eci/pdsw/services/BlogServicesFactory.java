@@ -10,8 +10,10 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 import com.google.inject.Injector;
 
 import edu.eci.pdsw.persistence.BlogDAO;
+import edu.eci.pdsw.persistence.ComentsDAO;
 import edu.eci.pdsw.persistence.UserDAO;
 import edu.eci.pdsw.persistence.mybatisimpl.MyBatisBlogDAO;
+import edu.eci.pdsw.persistence.mybatisimpl.MyBatisComentsDAO;
 import edu.eci.pdsw.persistence.mybatisimpl.MyBatisUserDAO;
 import edu.eci.pdsw.services.impl.BlogServicesImpl;
 
@@ -32,6 +34,7 @@ public class BlogServicesFactory {
                 bind(BlogServices.class).to(BlogServicesImpl.class);
                 bind(UserDAO.class).to(MyBatisUserDAO.class);
                 bind(BlogDAO.class).to(MyBatisBlogDAO.class);
+                bind(ComentsDAO.class).to(MyBatisComentsDAO.class);
             }
         });
     }

@@ -30,6 +30,8 @@ public interface BlogServices {
      * @throws ServicesException 
      */
     public List<Blog> listAll() throws ServicesException;
+    
+    public List<Comment> listAllComments() throws ServicesException;
 
 	/**
      * Consultar todos los blogs a partir de un login de usuario
@@ -52,7 +54,7 @@ public interface BlogServices {
      * @return la lista de comentarios
      * @throws ServicesException 
      */
-    public List<Comment> searchOffensiveLanguageComments() throws ServicesException;
+    public List<Blog> searchOffensiveLanguageComments() throws ServicesException;
     
     /**
      * Consultar un blog con sus comentarios por el id del blog

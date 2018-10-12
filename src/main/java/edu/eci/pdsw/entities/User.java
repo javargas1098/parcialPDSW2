@@ -11,6 +11,9 @@ public class User {
 		this.name = name;
 		this.lastName = lastName;
 	}
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public String getLogin() {
 		return login;

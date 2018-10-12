@@ -69,4 +69,10 @@ public class MyBatisBlogDAO implements BlogDAO {
 	public List<Blog> loadByUser(String login) throws PersistenceException {
 		return blogMapper.findByUser(login);
 	}
+
+	@Override
+	public List<Comment> search(String title) throws PersistenceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

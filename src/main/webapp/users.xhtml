@@ -10,7 +10,11 @@
 </h:head>
 <h:body>
 	<h1>Users</h1>
+	<p:column headerText="Patametro Ofensivo">
+		<p:button outcome="searchOffensiveUsers" value="Ver blogs Ofensivos"/> 
+	</p:column>
 	<p:dataTable id="user_table" var="user" value="#{userBean.users}">
+
 		<p:column headerText="Login">
 			<h:outputText value="#{user.login}" />
 		</p:column>
@@ -20,7 +24,7 @@
 		<p:column headerText="Last Name">
 			<h:outputText value="#{user.lastName}" />
 		</p:column>
-		<p:column headerText="Last Name">
+		<p:column headerText="blog">
 			<p:button outcome="blog?user=#{user.login}" value="View Blog" />
 		</p:column>
 	</p:dataTable>

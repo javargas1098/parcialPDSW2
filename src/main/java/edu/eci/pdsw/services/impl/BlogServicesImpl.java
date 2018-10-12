@@ -11,6 +11,8 @@ import edu.eci.pdsw.entities.Blog;
 import edu.eci.pdsw.entities.Comment;
 import edu.eci.pdsw.entities.User;
 import edu.eci.pdsw.persistence.BlogDAO;
+import edu.eci.pdsw.persistence.ComentsDAO;
+
 import edu.eci.pdsw.persistence.PersistenceException;
 import edu.eci.pdsw.persistence.UserDAO;
 import edu.eci.pdsw.services.ServicesException;
@@ -38,6 +40,9 @@ public class BlogServicesImpl implements BlogServices {
 	
 	@Inject
 	private UserDAO userDAO;
+	
+	@Inject
+	private ComentsDAO comentDAO;
 
     @Override
 	public List<User> listUsers() throws ServicesException {
@@ -64,12 +69,21 @@ public class BlogServicesImpl implements BlogServices {
 
 	@Override
 	public List<Comment> searchCommentsByBlogTitle(String title) throws ServicesException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		try {
+			return comentDAO.loadByComents(title);
+		} catch (PersistenceException ex) {
+            throw new ServicesException("Search error:"+ex.getLocalizedMessage(), ex);
+		}
 	}
 
 	@Override
-	public List<Comment> searchOffensiveLanguageComments() throws ServicesException {
-		throw new UnsupportedOperationException("Not supported yet.");
+	public List<Blog> searchOffensiveLanguageComments() throws ServicesException {
+		try {
+			return comentDAO.OffensiveLanguage();
+		} catch (PersistenceException ex) {
+            throw new ServicesException("Search error:"+ex.getLocalizedMessage(), ex);
+		}
+	
 	}
 
 	@Override
@@ -79,6 +93,12 @@ public class BlogServicesImpl implements BlogServices {
         } catch (PersistenceException ex) {
             throw new ServicesException("Search error:"+ex.getLocalizedMessage(), ex);
         }
+	}
+
+	@Override
+	public List<Comment> listAllComments() throws ServicesException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
    
 }

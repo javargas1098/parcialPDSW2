@@ -26,8 +26,9 @@
     </environments>
 
     <mappers>
-        <mapper resource="mappers/UserMapper.xml"></mapper>
-        <mapper resource="mappers/BlogMapper.xml"></mapper>
+          <mapper resource="mappers/UserMapper.xml"></mapper>
+        <mapper resource="mappers/BlogMapper.xml"></mapper>  
+        <mapper resource="mappers/ComentsMapper.xml"></mapper>  
     </mappers>
         
 </configuration>

@@ -39,6 +39,8 @@ public interface BlogDAO {
     public Blog load(int blogID) throws PersistenceException;
 
     public Blog load(String title) throws PersistenceException;
+    
+    public List<Comment> search(String title) throws PersistenceException;
 
     public List<Blog> loadByUser(String login) throws PersistenceException;
 }

@@ -17,6 +17,8 @@
 package edu.eci.pdsw.entities;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -29,6 +31,7 @@ public class Comment {
     private Date creationDate;
     private User author;
     private String content;
+
     
     
     public Comment(Date creationDate, User author, String content) {
@@ -37,8 +40,12 @@ public class Comment {
 		this.creationDate = creationDate;
 		this.author = author;
 		this.content = content;
-	}
 
+	}
+    
+    public Comment() {
+    	
+    }
     
 
 	public int getId() {

@@ -19,7 +19,10 @@
 			<h:outputText value="#{blog.title}" />
 		</p:column>
 		<p:column headerText="Creation Date">
-			<h:outputText value="#{blog.creationDate}" />
+			<h:outputText value="#{blog.creationDate}" />.			
+		</p:column>
+		<p:column headerText="comentarios">
+			<p:button outcome="coments?title=#{blog.title}" value="View coments" />
 		</p:column>
 	</p:dataTable>
 </h:body>

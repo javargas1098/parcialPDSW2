@@ -95,6 +95,8 @@ public class Blog {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
+	
+	
 
 
 	@Override

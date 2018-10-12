@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<h1>coments Offencives</h1>
+	<p:button outcome="users" value="Back to users" />
+	<p:dataTable id="offensive_table" var="offen"
+		value="#{comentsBean.bad}">
+		<p:column headerText="id">
+			<h:outputText value="#{offen.id}" />
+		</p:column>
+		<p:column headerText="title">
+			<h:outputText value="#{offen.title}" />
+		</p:column>
+		<p:column headerText="coments">
+			<p:dataList id="coments_table" var="coment"
+				value="#{comentsBean.getComents(offen.title)}">
+				<h:outputText value="Nombre :#{coment.author.name},                 " />
+
+				<h:outputText value=" Login :#{coment.author.login},                  " />
+
+				<h:outputText value="Contenido: #{coment.content}" />
+
+
+			</p:dataList>
+		</p:column>
+
+	</p:dataTable>
+</h:body>
+</html>

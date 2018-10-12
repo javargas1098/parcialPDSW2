@@ -24,6 +24,7 @@ import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
 import edu.eci.pdsw.entities.Blog;
+import edu.eci.pdsw.entities.Comment;
 import edu.eci.pdsw.services.BlogServices;
 import edu.eci.pdsw.services.ServicesException;
 
@@ -51,6 +52,9 @@ public class BlogBean extends BasePageBean {
 
 	public List<Blog> getData() throws Exception {
 		try {
+			List<Blog> c = blogServices.searchByUser(user);
+    		System.out.println(c);
+    		
 			if (user == null) {
 				return blogServices.listAll();
 			} else {

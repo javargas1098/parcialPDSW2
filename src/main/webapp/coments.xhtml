@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<h1>coments from #{comentsBean.title}</h1>
+	<p:button outcome="users" value="Back to users" />
+	<p:dataTable id="coments_table" var="coment"
+		value="#{comentsBean.blog}">
+		<p:column headerText="name">
+			<h:outputText value="#{coment.author.name}" />
+		</p:column>
+		<p:column headerText="login">
+			<h:outputText value="#{coment.author.login}" />
+		</p:column>
+		<p:column headerText="Creation Date">
+			<h:outputText value="#{coment.creationDate}" />
+		</p:column>
+		<p:column headerText="Coments">
+			<h:outputText value="#{coment.content}" />
+		</p:column>
+	</p:dataTable>
+</h:body>
+</html>
